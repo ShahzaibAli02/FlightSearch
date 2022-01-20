@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private AdView adView;
     private WebView myWebView;
     private InterstitialAd mInterstitialAd;
-    int count=3;
+    boolean isShown=false;
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -43,18 +43,11 @@ public class MainActivity extends AppCompatActivity {
     private void showAd()
     {
 
-        if(count==3)
+        if(mInterstitialAd!=null)
         {
-            if(mInterstitialAd!=null)
-            {
-                mInterstitialAd.show(this);
-                loadAd();
-                count=0;
-            }
-        }
-        else
-        {
-            count++;
+            mInterstitialAd.show(this);
+            //loadAd();
+            isShown=true;
         }
 
     }
